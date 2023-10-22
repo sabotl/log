@@ -1,10 +1,9 @@
-﻿using System;
-using System.Net.NetworkInformation;
-
+﻿
 namespace console
 {
     class Client : Logger
     {
+        infoLogStatus clientStatus;
         public string Name { get; set; }
         public string Password { get; set; }
         public Client(string name, string password)
@@ -33,38 +32,48 @@ namespace console
         {
             if (checkDataName() && checkDataPassword())
             {
+                clientStatus = infoLogStatus.info;
+
                 Console.WriteLine("Аккаунт успешно создан!");
                 logError = "ОК";
-                logStatus = "info";
+                logStatus = clientStatus;
                 logInfo = $"User: {Name} created account";
                 log();
             }
             else if (!checkDataName() && !checkDataPassword())
             {
+                clientStatus = infoLogStatus.error;
+
                 logError = "Input error";
                 logInfo = "User did not enter data";
-                logStatus = "error";
+                logStatus = clientStatus;
                 log();
             }
             else if (!checkDataName() && checkDataPassword())
             {
+                clientStatus = infoLogStatus.error;
+
                 logError = "Input error";
                 logInfo = "User did not enter name";
-                logStatus = "warning";
+                logStatus = clientStatus;
                 log();
             }
             else if (checkDataName() && !checkDataPassword())
             {
+                clientStatus = infoLogStatus.warning;
+
                 logError = "Input error";
                 logInfo = $"User did not enter password";
-                logStatus = "warning";
+                logStatus = clientStatus;
                 log();
             }
             else
             {
+                clientStatus = infoLogStatus.fatal;
+
                 logError = "Input error";
                 logInfo = "Invalid error";
-                logStatus = "Fatal";
+                logStatus = clientStatus;
                 log();
             }
         } 

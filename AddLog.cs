@@ -1,12 +1,21 @@
-﻿using System;
-using System.Net.NetworkInformation;
+﻿using System.Net.NetworkInformation;
+
 namespace console
 {
+    enum infoLogStatus
+    {
+        trace = 0,
+        debug = 1,
+        info = 2,
+        warning = 3,
+        error = 4,
+        fatal = 5
+    }
     internal class Logger
     {
         protected string logInfo { get; set; }
         protected string logError { get; set; }
-        protected string logStatus { get; set; }
+        protected infoLogStatus logStatus { get; set; }
 
         protected string SetLog()
         {

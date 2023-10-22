@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace console
 {
     class Program
@@ -8,7 +7,7 @@ namespace console
         {
             LoggerStartProgram start = new LoggerStartProgram();
             start.startProgram();
-            Client client = new Client("Name","Password");
+            Client client = new Client("dasdsadas","");
             client.AddClient();
         }
     }
