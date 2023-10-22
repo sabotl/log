@@ -17,7 +17,7 @@ namespace console
         protected string logError { get; set; }
         protected infoLogStatus logStatus { get; set; }
 
-        protected string SetLog()
+        private string SetLog()
         {
             string result;
             //Set client info
@@ -46,7 +46,7 @@ namespace console
 
             return result;
         }
-        protected string placeLog()
+        private string placeLog()
         {
             string path = Directory.GetCurrentDirectory();
             string relativePath = "temp.log";
